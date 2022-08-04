@@ -5,19 +5,18 @@ const palavraSecreta = animais[Math.floor(Math.random() * animais.length)]; // S
 
 const letrasErradas = [];
 const letrasCorretas = [];
-// Armazenar as letras nesses arrays.
 
 document.addEventListener("keydown", (evento) => {
-    const codigo = evento.keyCode // 65 - 90 (Intervalo: Letra A até a letra Z)
+    const codigo = evento.keyCode
     if(isLetra(codigo)) {
        const letra = evento.key;
         if(letrasErradas.includes(letra)) {
             mostrarAvisoLetraRepetida();
         } else {
             if(palavraSecreta.includes(letra)) {
-                letrasCorretas.push(letra); // Vai armazenar que está correta
+                letrasCorretas.push(letra);
             } else {
-                letrasErradas.push(letra); // Vai armazenar que está errada
+                letrasErradas.push(letra);
             }
         }
         atualizarJogo()
@@ -85,7 +84,7 @@ function mostrarLetrasCertas() {
         }
     })
 
-    // palavraSecreta.split("") // Vai dividir a palavra em um array ["G", "A", "T", "O"]
+    // palavraSecreta.split("")
 }
 
 function isLetra(codigo) {
